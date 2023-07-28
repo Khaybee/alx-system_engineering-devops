@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#stops a process
+
+# Run the 4-to_infinity_and_beyond script in the background
+./4-to_infinity_and_beyond &
+
+# Sleep for a few seconds to allow the process to run
+sleep 33
+
+# Terminate the 4-to_infinity_and_beyond process by name using pkill
+pkill "4-to_infinity_and_beyond"
+
+echo "Terminated"
+
