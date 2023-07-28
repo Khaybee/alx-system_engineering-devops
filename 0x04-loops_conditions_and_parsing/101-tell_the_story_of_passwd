@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Displays a made up story based on the contents of /etc/passwd
+
+# Set the IFS to ":" to split fields in the /etc/passwd file
+IFS=":"
+
+# Read the /etc/passwd file line by line using while loop
+while read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIRECTORY COMMAND_SHELL; do
+    # Display the story for each user
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY, and rides $COMMAND_SHELL. $GROUP_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_INFO"
+done < "/etc/passwd"
