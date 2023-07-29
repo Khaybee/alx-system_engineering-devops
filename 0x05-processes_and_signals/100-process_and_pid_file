@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Function to handle SIGTERM and SIGQUIT signals
+function terminate_handler() {
+  echo "I hate the kill command"
+  rm -f /var/run/myscript.pid
+  exit 0
+}
+
+# Function to handle SIGINT signal
+function interrupt_handler() {
+  echo "Y U no love me?!"
+}
+
+# Trap SIGTERM, SIGQUIT, and SIGINT signals and call respective handler functions
+trap 'terminate_handler' SIGTERM SIGQUIT
+trap 'interrupt_handler' SIGINT
+
+# Get the PID of the current process
+echo $$ > /var/run/myscript.pid
+
+# Loop to display the message "To infinity and beyond" indefinitely
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+done
